@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Explorer</title>
+        <style>
+            body{
+                margin-left:32%;
+                background-color:rgb(53, 110, 114);
+            }
+        .signup{
+            margin-top:50px;
+            background-image: url(images/signup.jpg);
+            background-repeat: no-repeat;
+            color:rgba(0, 0, 0, 0.72);
+            border-radius:0px 14px 0px 14px;
+            padding-left:20%;
+            padding-right:20%;
+            padding-top:5%;
+            height:350px;
+            width:240px;
+        }
+        p{
+            color:greenyellow;
+            font-size: large;
+        }
+        input{
+            width:200px;
+        }
+        </style>
+         <script>
+            function msg(){
+                document .getElementById('demo').innerHTML ="Successfully registered"; 
+            }
+            function matchpass(){
+                var firstpassword=document.f1.password.value;
+                var secondpassword=document.f1.password2.value;
+                if(firstpassword==secondpassword){
+                    return msg()
+                }
+                else{
+                    alert("password must be same!");
+                    return false;
+                }
+            }
+            function validation() {
+              var name=document.f1.username.value;
+              var password = document.f1.password.value;
+              var email =document.f1.email.value;
+              if(name==null || name==""){
+                  alert("name can't be blank");
+                  return false;
+              }else if(email==null || email==""){
+                alert("email can't be blank");
+                return false;
+              }else if(password==null || password==""){
+                alert("password can't be blank");
+                return false;
+              }
+              else if(password.length<6){
+                  alert("Password must be at least 6 characters long.");
+                  return false;
+              }
+              else 
+              return matchpass()
+          }  
+        
+        </script>
+    </head>
+<body>
+    <div class="signup"> 
+        <h2 style="color:#e1b340; text-shadow:1px 1px rgb(52, 0, 143);"><center>Explore World</center></h2>
+        <h3><center>Signup</center></h3>
+        <form name="f1" action="mainhome.html" onsubmit="return validation()">
+            Username : <input type="text" name="username"placeholder="Username"/><br><br>
+            Email : <input type="text" name="email" placeholder="email"/><br><br>
+            Password : <input type="password" name="password" placeholder="password"/><br><br>
+            Confirm-Password : <input type="password" name="password2" placeholder="confirm-password"/><br><br>
+            <center><input style="width:90px; height:30px; 
+                color:white; background-color:#e1b340;
+                 border:0px solid; border-radius:4px;" type="submit" value="signup"  /></center>
+            <p id="demo"></p>
+        </form>
+       
+    </div>
+</body>
+</html>
